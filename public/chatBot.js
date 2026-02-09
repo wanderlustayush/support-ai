@@ -1,6 +1,6 @@
 (function (){
 
-    const api_URL="http://localhost:3000/api/chat"
+    const api_URL="https://support-ai-liard.vercel.app/api/chat"
 
 
     const scriptTag=document.currentScript;
