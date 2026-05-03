@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- Support AI – Embeddable AI Customer Support (Next.js)
+A full-stack embeddable AI customer support chatbot built using Next.js, MongoDB, and Scalekit with Google Gemini AI responses, one-line JavaScript embed, and serverless deployment on Vercel.
+Live Demo: support-ai-liard.vercel.app
 
-## Getting Started
+- Tech Stack
+Frontend
 
-First, run the development server:
+Next.js 16 (App Router)
+TypeScript
+Tailwind CSS v4
+Motion (animations)
+Axios
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Backend
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js API Routes (serverless)
+MongoDB + Mongoose
+Scalekit (Authentication)
+Google Gemini 2.5 Flash (@google/genai)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+REST APIs
+CORS
+CI/CD via GitHub + Vercel
+dotenv
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+✨ Features
+👤 Business Owner
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Register / Login via Scalekit
+Configure business name, support email, and knowledge base
+Get a one-line JavaScript embed snippet
+Dashboard to manage chatbot settings
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- AI Chatbot
 
-## Deploy on Vercel
+Answers customer questions using your business knowledge base only
+Friendly greeting responses
+Falls back to "Please contact support" for unrelated questions
+Never invents policies or information
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- System
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+One-line embeddable JavaScript widget
+Gemini 2.5 Flash AI with ~1s response latency
+CORS-enabled API for cross-origin embedding
+Serverless API routes on Vercel
+Auto-deploy on every code push via CI/CD
+
+
+📁 Project Structure
+support-ai/
+│
+├── public/
+│
+└── src/
+    ├── app/
+    │   ├── api/
+    │   │   ├── auth/          # Scalekit authentication routes
+    │   │   ├── chat/          # AI chat endpoint (POST)
+    │   │   └── settings/      # Chatbot configuration routes
+    │   ├── dashboard/         # Owner dashboard page
+    │   ├── embed/             # Embeddable chatbot UI
+    │   ├── layout.tsx
+    │   └── page.tsx           # Landing page
+    ├── components/            # Reusable React components
+    ├── lib/                   # DB connection, utilities
+    ├── model/                 # Mongoose models
+    ├── proxy.ts
+    └── types.d.ts
+
+- Embed on Any Website
+👉 Try it live: support-ai-liard.vercel.app
+After configuring your chatbot on the dashboard, paste this single line into any website:
+html<script src="https://support-ai-liard.vercel.app/embed.js?ownerId=YOUR_OWNER_ID"></script>
+
+- How AI Works
+User Message → Fetch Business Settings (MongoDB) → Build Grounded Prompt → Gemini 2.5 Flash → Reply
+
+AI answers only from the configured knowledge base
+Handles greetings with a friendly welcome
+Replies "Please contact support" for unrelated questions
+Never invents policies or information
