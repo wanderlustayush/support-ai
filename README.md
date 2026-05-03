@@ -1,4 +1,4 @@
-- Support AI – Embeddable AI Customer Support (Next.js)
+💬 Support AI – Embeddable AI Customer Support (Next.js)
 A full-stack embeddable AI customer support chatbot built using Next.js, MongoDB, and Scalekit with Google Gemini AI responses, one-line JavaScript embed, and serverless deployment on Vercel.
 Live Demo: support-ai-liard.vercel.app
 
